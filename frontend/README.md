@@ -2,6 +2,11 @@
 node_modules/
 frontend/node_modules/
 backend/node_modules/
+**/node_modules/
+
+# Cache
+.cache/
+frontend/.cache/
 
 # Environment variables
 .env

@@ -1,54 +1,50 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api';
-
-// Create axios instance
 const api = axios.create({
-  baseURL: API_URL,
-  headers: {
-    'Content-Type': 'application/json'
-  }
+  baseURL: 'https://codefolio-backend-theta.vercel.app/api'
 });
 
 // Add token to requests
-api.interceptors.request.use((config) => {
-  const token = localStorage.getItem('token');
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
+api.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
   }
-  return config;
-});
+);
+
+// Handle 401 errors globally
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 401) {
+      localStorage.removeItem('token');
+      window.location.href = '/login';
+    }
+    return Promise.reject(error);
+  }
+);
 
 // Auth APIs
-export const register = (userData) => api.post('/auth/register', userData);
-export const login = (credentials) => api.post('/auth/login', credentials);
+export const register = (data) => api.post('/auth/register', data);
+export const login = (data) => api.post('/auth/login', data);
 
 // User APIs
 export const getProfile = () => api.get('/users/profile');
 export const updateProfile = (data) => api.put('/users/profile', data);
-export const getPortfolio = (username) => api.get(`/users/${username}`);
+export const uploadProfilePicture = (formData) => api.post('/upload/profile-picture', formData);
+export const uploadResume = (formData) => api.post('/upload/resume', formData);
+
+// Pro APIs
+export const upgradeToPro = () => api.post('/users/upgrade-pro');
+export const updateCustomDomain = (domain) => api.put('/users/custom-domain', { domain });
+
+// Public APIs
+export const getPublicProfile = (username) => api.get(`/users/${username}`);
 
 export default api;
-// Image Upload APIs
-export const uploadProfilePicture = (formData) => {
-  return api.post('/upload/profile-picture', formData, {
-    headers: { 'Content-Type': 'multipart/form-data' }
-  });
-};
-
-export const uploadProjectScreenshot = (formData) => {
-  return api.post('/upload/project-screenshot', formData, {
-    headers: { 'Content-Type': 'multipart/form-data' }
-  });
-};
-// Pro Features
-export const upgradeToPro = () => api.post('/users/upgrade-pro');
-export const updateCustomDomain = (domain) => api.put('/users/custom-domain', { customDomain: domain });
-
-// Blog APIs
-export const createBlog = (data) => api.post('/blogs', data);
-export const getUserBlogs = () => api.get('/blogs/my-blogs');
-export const getPublicBlogs = (username) => api.get(`/blogs/user/${username}`);
-export const getBlog = (slug) => api.get(`/blogs/${slug}`);
-export const updateBlog = (blogId, data) => api.put(`/blogs/${blogId}`, data);
-export const deleteBlog = (blogId) => api.delete(`/blogs/${blogId}`);
