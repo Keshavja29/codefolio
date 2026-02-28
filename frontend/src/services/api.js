@@ -40,11 +40,12 @@ export const updateProfile = (data) => api.put('/users/profile', data);
 export const uploadProfilePicture = (formData) => api.post('/upload/profile-picture', formData);
 export const uploadResume = (formData) => api.post('/upload/resume', formData);
 
+// Portfolio API (MISSING - ADD THIS)
+export const getPortfolio = (username) => api.get(`/users/${username}`);
+export const getPublicProfile = (username) => api.get(`/users/${username}`);
+
 // Pro APIs
 export const upgradeToPro = () => api.post('/users/upgrade-pro');
 export const updateCustomDomain = (domain) => api.put('/users/custom-domain', { domain });
-
-// Public APIs
-export const getPublicProfile = (username) => api.get(`/users/${username}`);
 
 export default api;
