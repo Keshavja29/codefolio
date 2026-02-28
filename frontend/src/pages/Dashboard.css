@@ -1,0 +1,291 @@
+/* Dark Dashboard with Background Image */
+.dashboard-dark-mode {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+}
+
+/* Background Image Layer */
+.dashboard-dark-mode::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&q=80');  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  opacity: 0.15;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Dark Overlay */
+.dashboard-dark-mode::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(10, 10, 26, 0.9) 0%, rgba(26, 26, 46, 0.85) 100%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* All content above background */
+.dashboard-dark-mode > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Header Styling */
+.dashboard-dark-mode .bg-white {
+  background: rgba(26, 26, 46, 0.8) !important;
+  backdrop-filter: blur(20px);
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+}
+
+.dashboard-dark-mode .bg-light {
+  background: rgba(15, 15, 25, 0.6) !important;
+}
+
+/* Cards */
+.dashboard-dark-mode .card {
+  background: rgba(26, 26, 46, 0.7) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #fff !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+.dashboard-dark-mode .card:hover {
+  background: rgba(26, 26, 46, 0.8) !important;
+  border-color: rgba(0, 255, 255, 0.3) !important;
+  box-shadow: 0 8px 30px rgba(0, 255, 255, 0.2) !important;
+  transform: translateY(-2px);
+  transition: all 0.3s;
+}
+
+/* Text Colors */
+.dashboard-dark-mode h1,
+.dashboard-dark-mode h2,
+.dashboard-dark-mode h3,
+.dashboard-dark-mode h4,
+.dashboard-dark-mode h5 {
+  color: #fff !important;
+}
+
+.dashboard-dark-mode .text-muted {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Form Controls */
+.dashboard-dark-mode .form-control {
+  background: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: #fff !important;
+}
+
+.dashboard-dark-mode .form-control:focus {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: #00ffff !important;
+  box-shadow: 0 0 0 3px rgba(0, 255, 255, 0.15) !important;
+  color: #fff !important;
+}
+
+.dashboard-dark-mode .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Form Labels */
+.dashboard-dark-mode .form-label {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 500;
+}
+
+/* Nav Tabs */
+.dashboard-dark-mode .nav-link {
+  color: rgba(255, 255, 255, 0.7) !important;
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 2px solid transparent !important;
+}
+
+.dashboard-dark-mode .nav-link:hover {
+  color: rgba(255, 255, 255, 0.9) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.dashboard-dark-mode .nav-link.active {
+  color: #00ffff !important;
+  background: rgba(0, 255, 255, 0.1) !important;
+  border-bottom-color: #00ffff !important;
+}
+
+.dashboard-dark-mode .nav-tabs {
+  border-bottom-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Buttons */
+.dashboard-dark-mode .btn-primary {
+  background: linear-gradient(135deg, #00ffff, #0099ff) !important;
+  border: none !important;
+  color: #000 !important;
+  font-weight: 600;
+}
+
+.dashboard-dark-mode .btn-primary:hover {
+  background: linear-gradient(135deg, #00ffff, #00ccff) !important;
+  box-shadow: 0 4px 20px rgba(0, 255, 255, 0.4) !important;
+  transform: translateY(-2px);
+}
+
+.dashboard-dark-mode .btn-success {
+  background: linear-gradient(135deg, #00ff88, #00cc66) !important;
+  border: none !important;
+}
+
+.dashboard-dark-mode .btn-success:hover {
+  box-shadow: 0 4px 20px rgba(0, 255, 136, 0.4) !important;
+}
+
+.dashboard-dark-mode .btn-danger {
+  background: linear-gradient(135deg, #ff0080, #ff0040) !important;
+  border: none !important;
+}
+
+.dashboard-dark-mode .btn-danger:hover {
+  box-shadow: 0 4px 20px rgba(255, 0, 128, 0.4) !important;
+}
+
+.dashboard-dark-mode .btn-outline-primary {
+  border-color: rgba(0, 255, 255, 0.5) !important;
+  color: #00ffff !important;
+  background: rgba(0, 255, 255, 0.05) !important;
+}
+
+.dashboard-dark-mode .btn-outline-primary:hover {
+  background: rgba(0, 255, 255, 0.15) !important;
+  border-color: #00ffff !important;
+  box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3) !important;
+}
+
+/* Badges */
+.dashboard-dark-mode .badge {
+  background: rgba(0, 255, 255, 0.2) !important;
+  color: #00ffff !important;
+  border: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.dashboard-dark-mode .badge.bg-warning {
+  background: rgba(255, 193, 7, 0.2) !important;
+  color: #ffc107 !important;
+  border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+.dashboard-dark-mode .badge.bg-info {
+  background: rgba(13, 202, 240, 0.2) !important;
+  color: #0dcaf0 !important;
+}
+
+/* Tables */
+.dashboard-dark-mode .table {
+  color: #fff !important;
+}
+
+.dashboard-dark-mode .table thead {
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.dashboard-dark-mode .table tbody tr {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dashboard-dark-mode .table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Shadows */
+.dashboard-dark-mode .shadow-sm {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Alert Styling */
+.dashboard-dark-mode .alert-success {
+  background: rgba(0, 255, 136, 0.15) !important;
+  backdrop-filter: blur(10px);
+  border-color: rgba(0, 255, 136, 0.3) !important;
+  color: #00ff88 !important;
+}
+
+.dashboard-dark-mode .alert-info {
+  background: rgba(0, 204, 255, 0.15) !important;
+  backdrop-filter: blur(10px);
+  border-color: rgba(0, 204, 255, 0.3) !important;
+  color: #00ccff !important;
+}
+
+/* Template Cards */
+.dashboard-dark-mode .card.bg-dark {
+  background: rgba(20, 20, 40, 0.8) !important;
+  backdrop-filter: blur(15px);
+}
+
+.dashboard-dark-mode .card.bg-secondary {
+  background: rgba(40, 40, 60, 0.8) !important;
+  backdrop-filter: blur(15px);
+}
+
+/* Analytics Cards */
+.dashboard-dark-mode .card.bg-primary {
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.3), rgba(0, 153, 255, 0.3)) !important;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(0, 255, 255, 0.3) !important;
+}
+
+.dashboard-dark-mode .card.bg-success {
+  background: linear-gradient(135deg, rgba(0, 255, 136, 0.3), rgba(0, 204, 102, 0.3)) !important;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(0, 255, 136, 0.3) !important;
+}
+
+.dashboard-dark-mode .card.bg-info {
+  background: linear-gradient(135deg, rgba(0, 204, 255, 0.3), rgba(0, 153, 255, 0.3)) !important;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(0, 204, 255, 0.3) !important;
+}
+
+/* Image Styling */
+.dashboard-dark-mode .border {
+  border-color: rgba(0, 255, 255, 0.3) !important;
+}
+
+/* Scrollbar */
+.dashboard-dark-mode::-webkit-scrollbar {
+  width: 10px;
+}
+
+.dashboard-dark-mode::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.dashboard-dark-mode::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 255, 0.3);
+  border-radius: 5px;
+}
+
+.dashboard-dark-mode::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 255, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dashboard-dark-mode .card {
+    margin-bottom: 20px;
+  }
+}

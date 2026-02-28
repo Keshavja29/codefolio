@@ -1,0 +1,447 @@
+/* Wrapper with Nature Background */
+.glass-auth-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #064e3b 0%, #065f46 50%, #047857 100%);
+}
+
+/* Background Image Layer */
+.glass-auth-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://images.unsplash.com/photo-1511497584788-876760111969?w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+/* Dark Green Overlay */
+.glass-auth-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(6, 78, 59, 0.7) 0%, rgba(6, 95, 70, 0.65) 50%, rgba(4, 120, 87, 0.7) 100%);
+  z-index: 1;
+}
+
+/* Animated Background Shapes */
+.glass-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.leaf-shape {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: rgba(16, 185, 129, 0.12);
+  border-radius: 50% 0 50% 50%;
+  animation: float-leaf 25s infinite ease-in-out;
+  filter: blur(60px);
+}
+
+.leaf-shape.leaf-1 {
+  top: -150px;
+  left: -150px;
+  animation-delay: 0s;
+}
+
+.leaf-shape.leaf-2 {
+  top: 30%;
+  right: -200px;
+  animation-delay: 5s;
+  transform: rotate(45deg);
+}
+
+.leaf-shape.leaf-3 {
+  bottom: -150px;
+  left: 25%;
+  animation-delay: 10s;
+  transform: rotate(90deg);
+}
+
+.leaf-shape.leaf-4 {
+  top: 15%;
+  right: 15%;
+  width: 300px;
+  height: 300px;
+  animation-delay: 15s;
+  transform: rotate(135deg);
+}
+
+.leaf-shape.leaf-5 {
+  bottom: 20%;
+  left: 10%;
+  width: 350px;
+  height: 350px;
+  animation-delay: 20s;
+  transform: rotate(180deg);
+}
+
+@keyframes float-leaf {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-30px) rotate(5deg);
+  }
+  50% {
+    transform: translateY(-60px) rotate(10deg);
+  }
+  75% {
+    transform: translateY(-30px) rotate(5deg);
+  }
+}
+
+/* Glass Card Container */
+.glass-card-container {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  max-width: 1100px;
+  width: 100%;
+  min-height: 600px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  animation: slideUp 0.8s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Left Side */
+.glass-card-left {
+  flex: 1;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.3);
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.glass-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.glass-description {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+}
+
+/* Right Side */
+.glass-card-right {
+  flex: 1;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.glass-form-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+/* Error */
+.glass-error {
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #fca5a5;
+  padding: 12px 16px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  backdrop-filter: blur(10px);
+}
+
+/* Form */
+.glass-form {
+  margin-bottom: 24px;
+}
+
+.glass-input-wrapper {
+  margin-bottom: 20px;
+}
+
+.glass-input {
+  width: 100%;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+  color: white;
+  font-size: 15px;
+  transition: all 0.3s;
+  outline: none;
+}
+
+.glass-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.glass-input:focus {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(16, 185, 129, 0.6);
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15);
+}
+
+/* Buttons */
+.glass-btn-primary {
+  width: 100%;
+  padding: 14px;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-bottom: 16px;
+}
+
+.glass-btn-primary:hover:not(:disabled) {
+  background: #059669;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+}
+
+.glass-btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.glass-btn-secondary {
+  width: 100%;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.glass-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+/* Divider */
+.glass-divider {
+  text-align: center;
+  margin: 24px 0;
+  position: relative;
+}
+
+.glass-divider::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.glass-divider span {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  padding: 0 16px;
+  position: relative;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+}
+
+/* Social Icons */
+.glass-social-icons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.glass-social-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: white;
+  transition: all 0.3s;
+  backdrop-filter: blur(10px);
+}
+
+.glass-social-btn.facebook {
+  background: rgba(24, 119, 242, 0.8);
+}
+
+.glass-social-btn.twitter {
+  background: rgba(29, 161, 242, 0.8);
+}
+
+.glass-social-btn.google {
+  background: rgba(234, 67, 53, 0.8);
+}
+
+.glass-social-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer Text */
+.glass-footer-text {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
+}
+
+.glass-footer-text a {
+  color: #10b981;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.glass-footer-text a:hover {
+  text-decoration: underline;
+}
+
+.glass-back-btn {
+  background: transparent;
+  border: none;
+  color: #10b981;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.glass-back-btn:hover {
+  text-decoration: underline;
+}
+
+/* Google Form Specific */
+.google-logo-small {
+  width: 120px;
+  margin: 0 auto 20px;
+  display: block;
+}
+
+.google-subtitle-small {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 13px;
+  margin-bottom: 24px;
+}
+
+/* Presented By Badge */
+.glass-presented-by {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: white;
+  font-size: 14px;
+  z-index: 20;
+}
+
+.glass-logo-badge {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .glass-card-container {
+    flex-direction: column;
+  }
+
+  .glass-card-left {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 40px;
+  }
+
+  .glass-title {
+    font-size: 36px;
+  }
+
+  .glass-card-right {
+    padding: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .glass-card-left,
+  .glass-card-right {
+    padding: 30px 20px;
+  }
+
+  .glass-title {
+    font-size: 28px;
+  }
+
+  .glass-form-title {
+    font-size: 24px;
+  }
+}
