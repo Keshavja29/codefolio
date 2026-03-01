@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://codefolio-backend-theta.vercel.app/api'
+  baseURL: 'https://codefolio-backend-n4vx.onrender.com/api',
 });
 
 // Add token to requests
@@ -40,11 +40,9 @@ export const updateProfile = (data) => api.put('/users/profile', data);
 export const uploadProfilePicture = (formData) => api.post('/upload/profile-picture', formData);
 export const uploadResume = (formData) => api.post('/upload/resume', formData);
 
-// Portfolio API (MISSING - ADD THIS)
-export const getPortfolio = (username) => api.get(`/users/${username}`);
+// Portfolio API
 export const getPublicProfile = (username) => api.get(`/users/${username}`);
-
-// Pro APIs
+export const getPortfolio = getPublicProfile;// Pro APIs
 export const upgradeToPro = () => api.post('/users/upgrade-pro');
 export const updateCustomDomain = (domain) => api.put('/users/custom-domain', { domain });
 
