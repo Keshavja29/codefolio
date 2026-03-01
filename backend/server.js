@@ -10,11 +10,19 @@ connectDB();
 const app = express();
 
 // Middleware
+const cors = require('cors');
+
 app.use(cors({
-  origin: 'http://localhost:3000',
-  credentials: true
+  origin: [
+    'http://localhost:3000',
+    'https://codefolio-six.vercel.app',
+    'https://codefolio-backend-n4vx.onrender.com'
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
-app.use(express.json());
+
 
 // Routes
 app.use('/api/auth', require('./routes/authRoutes'));
