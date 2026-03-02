@@ -21,6 +21,9 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.options('*', cors());
+app.options('*', cors()); // ← ADD KARO
+app.use(express.json()); // ← ADD KARO
+app.use(express.urlencoded({ extended: true }));
 
 // 2. Body parser
 app.use(express.json());
