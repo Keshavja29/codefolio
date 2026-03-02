@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "env": {
+    "MONGODB_URI": "mongodb+srv://keshav:keshav@2002@cluster0.ediusj6.mongodb.net/codefolio?retryWrites=true&w=majority",
+    "JWT_SECRET": "codefolio-jwt-secret-2024"
+  }
+}
