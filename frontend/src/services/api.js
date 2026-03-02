@@ -1,8 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://codefolio-backend-n4vx.onrender.com/api',
-});
+baseURL: 'https://codefolio-7245.onrender.com/api',});
 
 // Add token to requests
 api.interceptors.request.use(
